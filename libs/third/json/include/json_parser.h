@@ -66,7 +66,7 @@ ssize_t json_get_string_copy(const json_t *obj, const char *name,
 
 
 #ifdef __cplusplus 
-extern "C" {
+}
 #endif
 
 
