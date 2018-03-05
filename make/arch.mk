@@ -1,4 +1,5 @@
-#ARCH		:= mips
+#ARCH								:= mips
+ARCH								:= MT7620
 
 ifeq ($(ARCH),mips)
 CROSSTOOLDIR				:=/opt/au/qsdk-dusun/qsdk
@@ -7,6 +8,18 @@ export	PATH				:=$(PATH):$(STAGING_DIR)/toolchain-mips_34kc_gcc-4.8-linaro_uClib
 CROSS_CFLAGS				:= -I$(CROSSTOOLDIR)/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-1.0.14/usr/include
 CROSS_LDFLAGS				:= -L$(CROSSTOOLDIR)/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-1.0.14/usr/lib
 CROSS								:= mips-openwrt-linux-
+endif
+
+ifeq ($(ARCH),MT7620)
+CROSSTOOLDIR 				:= /home/au/all/gwork/openwrt
+CROSS   						:= mipsel-openwrt-linux-
+export  STAGING_DIR	:= $(CROSSTOOLDIR)/staging_dir
+export  PATH				:= $(PATH):$(STAGING_DIR)/toolchain-mipsel_24kec+dsp_gcc-4.8-linaro_uClibc-0.9.33.2/bin
+
+CROSS_CFLAGS				:= -I$(CROSSTOOLDIR)/staging_dir/toolchain-mipsel_24kec+dsp_gcc-4.8-linaro_uClibc-0.9.33.2/usr/include
+CROSS_CFLAGS				+= -I$(CROSSTOOLDIR)/staging_dir/target-mipsel_24kec+dsp_uClibc-0.9.33.2/usr/include
+CROSS_LDFLAGHS			:= -L$(CROSSTOOLDIR)/staging_dir/toolchain-mipsel_24kec+dsp_gcc-4.8-linaro_uClibc-0.9.33.2/usr/lib
+CROSS_LDFLAGHS			+= -L$(CROSSTOOLDIR)/staging_dir/target-mipsel_24kec+dsp_uClibc-0.9.33.2/usr/lib/ 
 endif
 
 GCC 		:= $(CROSS)gcc
