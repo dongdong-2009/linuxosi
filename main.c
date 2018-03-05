@@ -18,7 +18,7 @@
 
 #include "log.h"
 #include "list.h"
-#include "version.h"
+#include "common.h"
 #include "timer.h"
 #include "file_event.h"
 
