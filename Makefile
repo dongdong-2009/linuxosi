@@ -71,4 +71,5 @@ testobjs = $(subst $(ROOTDIR),$(WORKDIR), $(subst .c,.o,$(testsrcs)))
 #$(eval $(call LinkLio,libdbsync.so$(VERSION),$(dbsyncobjs)))
 $(eval $(call LinkApp,test,$(testobjs)))
 
-
+run :
+	./build/test
